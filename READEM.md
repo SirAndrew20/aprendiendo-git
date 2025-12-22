@@ -26,12 +26,12 @@ Desde la red:
 
 Colocamos git help nombre del comando
 
-
 ## Crear Archivo gitignore
 
 Para ello creamos un archivo con **touch** y luego colocamos el comando **.gitignore**. En este archivo se va a especificar cuales van a ser los documentos o tipos de archivos que seran ignorados
 
 ## Ignorar Archivos
+
 debemos colocar dentro de gitignore los siguinetes comandos:
 
 para ignorar archivo:
@@ -53,12 +53,12 @@ _!production.log_
 ignorar los archivos terminados en .txt dentro de la carpeta doc,
 pero no en sus subcarpetas:
 
-_doc/*.txt_
+_doc/\*.txt_
 
 ignorar todos los archivos terminados en .txt dentro de la carpeta doc
 y también en sus subcarpetas:
 
-_doc/**/*.txt_
+_doc/\**/*.txt_
 
 ## Clonar Repositorio
 
@@ -66,15 +66,15 @@ para ello colocamos el comando git clone u la url del repositorio ejemplo:
 
 **git clone https://github.com/usuario/repositorio.git**
 
-## Ramas 
+## Ramas
 
-Nos permite aislar una nueva funcionalidad en nuestro código que después podremos añadir a la versión principal, es como si fueran pequeñas realidades simultaneas de nuestros proyectos, esto nos permite poder realizar figure. para ello escribimos los siguientes comandos
+sirven para crear espacios de trabajo aislados donde puedes desarrollar nuevas funcionalidades, corregir errores o experimentar sin afectar el código principal del proyecto, permitiendo a los equipos colaborar de forma segura y paralela. Son como copias del proyecto donde puedes hacer cambios y fusionarlos de vuelta al principal (main/master) una vez que estén listos y probados, usando herramientas como los Pull Requests para revisar y aprobar esos cambios.
 
 **crear rama**
 
 _git branch nombre-rama_
 
- **cambiar de rama:**
+**cambiar de rama:**
 
 _git checkout nombre-rama_
 
@@ -85,7 +85,7 @@ _git checkout -b nombre de la rama_
 
 _git checkout -b crea esa rama_
 
- **eliminar rama**
+**eliminar rama**
 
 _git branch -d nombre-rama_
 
@@ -97,19 +97,19 @@ _git push origin --delete nombre-rama_
 
 _git branch -D nombre-rama_
 
- **listar todas las ramas del repositorio**
+**listar todas las ramas del repositorio**
 
 _git branch_
 
- **lista ramas no fusionadas a la rama actual**
+**lista ramas no fusionadas a la rama actual**
 
 _git branch --no-merged_
 
- **lista ramas fusionadas a la rama actual**
+**lista ramas fusionadas a la rama actual**
 
 _git branch --merged_
 
- **rebasar ramas:**
+**rebasar ramas:**
 
 _git checkout rama-secundaria_
 
