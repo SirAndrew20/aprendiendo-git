@@ -126,7 +126,8 @@ Fusionar.
 Cuando se fusionan ramas se pueden dar 2 resultados diferentes:
 
 Fast-Forward: La fusión se hace automática, no hay conflictos por resolver.
-Manual Merge: La fusión hay que hacerla manual, para resolver conflictos de duplicación de contenido.
+
+Manual Merge: La fusión hay que hacerla manual, para resolver conflictos de duplicación de contenido. Esto implica modificar el documento en cuestion y borrar el contenido que no queremos que se quede o agregar contenido que queremos que se quede
 
 - nos cambiamos a la rama principal que quedará de la fusión
 
