@@ -115,7 +115,7 @@ _git checkout rama-secundaria_
 
 _git rebase rama-principal_
 
-y para agregatr esa rama al remoto colocamos git push -u origin nombre de la rama
+y para agregatr esa rama al remoto colocamos git push -u origin nombre de la ramahtml
 
 ## Fusionar ramas 
 
