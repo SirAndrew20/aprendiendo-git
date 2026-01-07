@@ -66,7 +66,7 @@ para ello colocamos el comando git clone u la url del repositorio ejemplo:
 
 **git clone https://github.com/usuario/repositorio.git**
 
-## Ramas 
+## Ramas
 
 Nos permite aislar una nueva funcionalidad en nuestro código que después podremos añadir a la versión principal, es como si fueran pequeñas realidades simultaneas de nuestros proyectos, esto nos permite poder realizar figure. para ello escribimos los siguientes comandos
 
@@ -74,7 +74,7 @@ Nos permite aislar una nueva funcionalidad en nuestro código que después podre
 
 _git branch nombre-rama_
 
- **cambiar de rama:**
+**cambiar de rama:**
 
 _git checkout nombre-rama_
 
@@ -85,7 +85,7 @@ _git checkout -b nombre de la rama_
 
 _git checkout -b crea esa rama_
 
- **eliminar rama**
+**eliminar rama**
 
 _git branch -d nombre-rama_
 
@@ -97,19 +97,19 @@ _git push origin --delete nombre-rama_
 
 _git branch -D nombre-rama_
 
- **listar todas las ramas del repositorio**
+**listar todas las ramas del repositorio**
 
 _git branch_
 
- **lista ramas no fusionadas a la rama actual**
+**lista ramas no fusionadas a la rama actual**
 
 _git branch --no-merged_
 
- **lista ramas fusionadas a la rama actual**
+**lista ramas fusionadas a la rama actual**
 
 _git branch --merged_
 
- **rebasar ramas:**
+**rebasar ramas:**
 
 _git checkout rama-secundaria_
 
@@ -117,7 +117,7 @@ _git rebase rama-principal_
 
 y para agregatr esa rama al remoto colocamos git push -u origin nombre de la ramahtml
 
-## Fusionar ramas 
+## Fusionar ramas
 
 Une dos ramas. Para hacer una fusión necesitamos:
 
@@ -136,3 +136,80 @@ Manual Merge: La fusión hay que hacerla manual, para resolver conflictos de dup
 - ejecutamos el comando merge con la rama secundaria a fusionar
 
 **git merge rama-secundaria**
+
+## Cambios al Commit
+
+Puede que nos pase que se nos haya olvidado escribir unas lineas de codigo y eso implica hacer otro _commit_ para guardarlo, pero nosotros podemos hacer cambios al ultimo _commit_. para ello tenemos estos codigos.
+
+- sin editar el mensaje del último commit
+
+**git commit --amend --no-edit** : Se usa para no editar el mensaje
+
+- editando el mensaje del último commit
+
+git commit --amend -m "nuevo mensaje para el último commit" : Se usa para agregar un nuevo mensaje
+
+- eliminar el último commit
+
+**git reset --hard HEAD~1** Para eliinar el ultimo commit
+
+- **git log**: Nos permite ver los cambios que hemos hecho en el commit, si queremos seguir viendo mas commit modificados le precionamos _enter_ y si queremos salirnos de esa lista escribimos **q**, esto nos permitira obtener el **id** para movernos al commit que queramos.
+
+y si queremos ver todos los cambios en una sola linea colocamos el comando **git log --oneline**
+
+- **git checkout id-commit** : Nos permite movernos al commit con el id especificado
+
+Nota: Hay que tener cuidado de hacer siempre push, por que podriamos dañar un archivo
+
+## Registro del Historial
+
+Accedemos a el por medio del comando **git log**, que nos permite conocer todo el historial de un proyecto, con la información de la fecha, el autor y id de cada cambio.
+
+diferentes comandos Log:
+
+git log
+
+- git log --oneline : muestra en una sola línea por cambio
+
+- git log > commits.txt : guarda el log en la ruta y archivo que especifiquemos 
+
+- git log --pretty=format:"%h - %an, %ar : %s" : muestra el historial con el formato que indicamos
+
+- git log -n : cambiamos la n por cualquier número entero y mostrará los n cambios recientes
+
+- git log --after="2019-07-07 00:00:00" : muestra los cambios realizados después de la fecha especificada
+
+- git log --before="2019-07-08 00:00:00": muestra los cambios realizados antes de la fecha especificada
+
+- git log --after="2019-07-07 00:00:00" --before="2019-07-08 00:00:00" : muestra los cambios realizados en el rango de fecha especificado
+
+- git log --oneline --graph --all : muestra una gráfica del historial de cambios, rama y fusiones
+muestra todo el registro de acciones del log incluyendo inserciones, cambios, eliminaciones, fusiones, etc.
+
+- git reflog
+
+- git diff: diferencias entre el Working Directory y el Staging Area
+
+## Reseteo del Historial
+
+Podemos eliminar el historial de cambios del proyecto hacia adelante con respecto de un punto de referencia.
+
+nos muestra el listado de archivos nuevos (untracked), borrados o editados
+git status
+
+* borra HEAD
+git reset --soft
+
+* borra HEAD y Staging
+git reset --mixed
+
+* borra todo: HEAD, Staging y Working Directory
+git reset --hard
+
+* deshace todos los cambios después del commit indicado, preservando los cambios localmente
+
+git reset id-commit
+
+* desecha todo el historial y regresa al commit especificado
+
+git reset --hard id-commit
